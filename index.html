@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Balta Media</title>
-    <!-- Etiquetas SEO -->
-    <link rel="canonical" href="https://media.baltaanay.org" id="canonicalLink">
-    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://app.baltaanay.org/" id="alternateLink">
+    <title>Balta Media · Conocimiento en acción</title>
+    <link rel="canonical" href="https://media.baltaanay.org/" id="canonicalLink">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="https://app.baltaanay.org/" id="alternateLink">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://balta-media.odoo.com/web/image/1101-2d795e8f/Blues-v1.webp">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://balta-media.odoo.com/web/image/1101-2d795e8f/Blues-v1.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="/styles.css">
-
+   
     <!-- ESTILOS BASE -->
     <style id="sidebar-base-styles">
         * {
@@ -30,13 +29,15 @@
             overflow: hidden;
             background: #050505;
         }
+
         body {
             display: grid;
             grid-template-columns: auto 1fr;
-            grid-template-areas:
+            grid-template-areas: 
                 "sidebar main-area";
             grid-template-rows: 1fr;
         }
+
         /* SIDEBAR */
         .sidebar-desktop {
             grid-area: sidebar;
@@ -55,6 +56,7 @@
             min-width: 70px;
         }
         .sidebar-desktop::-webkit-scrollbar { display: none; }
+
         .sidebar-desktop.expanded {
             width: 220px;
             min-width: 220px;
@@ -65,9 +67,11 @@
                 min-width: 250px;
             }
         }
+
         @media (max-width: 768px) {
             .sidebar-desktop { display: none !important; }
         }
+
         .sidebar-toggle {
             display: flex;
             justify-content: flex-end;
@@ -78,6 +82,7 @@
         }
         .sidebar-toggle svg { width: 24px; height: 24px; fill: white; transition: transform 0.2s; }
         .sidebar-desktop.expanded .sidebar-toggle svg { transform: rotate(180deg); }
+
         .sidebar-nav {
             display: flex;
             flex-direction: column;
@@ -102,6 +107,7 @@
         .sidebar-nav-item span { font-size: 14px; font-weight: 500; }
         .sidebar-desktop:not(.expanded) .sidebar-nav-item span { display: none; }
         .sidebar-desktop:not(.expanded) .sidebar-rec-section { display: none; }
+
         .sidebar-rec-section {
             padding: 0 8px;
             margin-top: 20px;
@@ -128,6 +134,7 @@
         }
         .sidebar-rec-header svg { width: 16px; height: 16px; fill: white; }
         .sidebar-rec-list { display: flex; flex-direction: column; gap: 12px; }
+
         .sidebar-rec-item {
             display: flex;
             align-items: center;
@@ -149,6 +156,7 @@
         .sidebar-rec-item-info { flex: 1; min-width: 0; }
         .sidebar-rec-item-title { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .sidebar-rec-item-author { font-size: 11px; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
         .sidebar-rec-play-btn {
             background: none;
             border: none;
@@ -163,6 +171,7 @@
         }
         .sidebar-rec-play-btn:hover { background: rgba(255,255,255,0.2); }
         .sidebar-rec-play-btn svg { width: 18px; height: 18px; fill: white; }
+
         /* MAIN AREA */
         .main-area {
             grid-area: main-area;
@@ -172,6 +181,8 @@
             overflow: hidden;
             position: relative;
         }
+
+        /* HEADER Y FILTROS - COMPORTAMIENTO CORREGIDO */
         .header-container {
             position: sticky;
             top: 0;
@@ -181,32 +192,38 @@
             background: rgba(5,5,5,0.96);
             backdrop-filter: blur(12px);
         }
+
         .header-container.hidden {
             transform: translateY(-100%);
         }
+
         #main-header {
             background: transparent;
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
+
         #main-header > div {
             padding: 0.75rem 1rem;
         }
+
         #category-filters {
             background: rgba(5,5,5,0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.07);
             flex-shrink: 0;
         }
+
         #category-filters > div {
             padding: 0.5rem 1rem;
         }
+
         #content {
             flex: 1 1 auto;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             padding: 1.25rem 1rem;
-            padding-bottom: 140px;   /* Espacio para footer/derechos de autor */
         }
+
         @media (max-width: 768px) {
             body {
                 grid-template-columns: 1fr;
@@ -217,30 +234,34 @@
 </head>
 <body class="bg-[#050505] text-white font-[Plus_Jakarta_Sans]">
 
-<!-- Sidebar (se genera dinámicamente con JS) -->
+<!-- Sidebar -->
 <aside class="sidebar-desktop collapsed" id="sidebarDesktop"></aside>
 
 <!-- Área principal -->
 <div class="main-area">
-    <!-- Header + Filtros -->
+
+    <!-- Header + Filtros - Contenedor unificado para sticky -->
     <div class="header-container" id="headerContainer">
+        <!-- Header -->
         <header id="main-header">
             <div class="flex items-center justify-between">
                 <a href="/" class="flex items-center gap-2" data-link>
-                    <img src="https://balta-media.odoo.com/web/image/1097-db212070/BNs.webp" alt="Balta Media" class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover" loading="lazy">
+                    <img src="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png" alt="Balta Media" class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover" loading="lazy">
                     <span class="text-lg sm:text-xl font-bold text-white">Balta Media</span>
                 </a>
                 <div class="flex items-center gap-3 sm:gap-4">
                     <a href="/novedades" class="relative text-gray-400 hover:text-white" data-link>
-                        <img src="https://balta-media.odoo.com/web/image/796-aee658de/Explore.png" alt="Novedades" class="w-5 h-5" loading="lazy">
+                        <img src="https://media.baltaanay.org/web/image/796-aee658de/Explore.png" alt="Novedades" class="w-5 h-5" loading="lazy">
                         <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                     </a>
                     <a href="/my/home" class="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full overflow-hidden" data-link>
-                        <img src="https://balta-media.odoo.com/web/image/793-902e5b33/Search%20%282%29.png" alt="Usuario" class="w-full h-full object-cover" loading="lazy">
+                        <img src="https://media.baltaanay.org/web/image/793-902e5b33/Search%20%282%29.png" alt="Usuario" class="w-full h-full object-cover" loading="lazy">
                     </a>
                 </div>
             </div>
         </header>
+
+        <!-- Filtros / categorías -->
         <div id="category-filters">
             <div class="overflow-x-auto no-scrollbar">
                 <div class="flex items-center gap-2 sm:gap-3" id="category-pills"></div>
@@ -250,10 +271,13 @@
 
     <!-- Contenido con scroll principal -->
     <main id="content"></main>
+
 </div>
 
 <!-- Reproductor flotante -->
-<div id="floating-player" class="fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t border-[#333] p-3 flex items-center justify-between z-[10000] backdrop-blur hidden"></div>
+<div id="floating-player" class="fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t border-[#333] p-3 flex items-center justify-between z-[10000] backdrop-blur hidden">
+    <!-- Generado por player.js -->
+</div>
 
 <!-- Modal de error -->
 <div id="errorModal" class="fixed inset-0 z-[10000] flex items-center justify-center hidden" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);">
@@ -268,9 +292,11 @@
     </div>
 </div>
 
+
 <!-- Script sidebar -->
 <script type="module">
 import { episodios, getSerieById } from '/episodios.js';
+
 (function() {
     const SIDEBAR_CONFIG = { BREAKPOINT: 768 };
     let sidebarInstance = {
@@ -278,37 +304,42 @@ import { episodios, getSerieById } from '/episodios.js';
         currentState: localStorage.getItem('sidebar_state') || 'collapsed',
         isMobile: window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT
     };
+
     function getRandomEpisodes(count = 12) {
         const shuffled = [...episodios].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
+
     function renderSidebar() {
         const sidebar = document.createElement('aside');
         sidebar.className = `sidebar-desktop ${sidebarInstance.currentState}`;
         sidebar.id = 'sidebarDesktop';
+
         const toggle = document.createElement('div');
         toggle.className = 'sidebar-toggle';
         toggle.id = 'sidebarDesktopToggle';
         toggle.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>';
+
         const nav = document.createElement('div');
         nav.className = 'sidebar-nav';
         nav.innerHTML = `
-            <a href="/" class="sidebar-nav-item" title="Inicio" data-link>
-                <img src="https://balta-media.odoo.com/web/image/798-1b947c8d/Home%20%282%29.webp" alt="Inicio" loading="lazy"><span>Inicio</span>
+            <a href="/" class="sidebar-nav-item" title="Home" data-link>
+                <img src="https://media.baltaanay.org/web/image/798-1b947c8d/Home%20%282%29.webp" alt="Home" loading="lazy"><span>Home</span>
             </a>
-            <a href="/buscar" class="sidebar-nav-item" title="Buscar" data-link>
-                <img src="https://balta-media.odoo.com/web/image/800-91a2fecc/Search%20%282%29.webp" alt="Buscar" loading="lazy"><span>Buscar</span>
+            <a href="/buscar" class="sidebar-nav-item" title="Explorar" data-link>
+                <img src="https://www.baltaanay.org/web/image/986-2bf9d2bb/Search%20%282%29.webp" alt="Explorar" loading="lazy"><span>Explorar</span>
             </a>
-            <a href="/explorar" class="sidebar-nav-item" title="Explorar" data-link>
-                <img src="https://balta-media.odoo.com/web/image/796-aee658de/Explore.png" alt="Explorar" loading="lazy"><span>Explorar</span>
+            <a href="/subir" class="sidebar-nav-item" title="Cargar" data-link>
+                <img src="https://www.baltaanay.org/web/image/991-1c3c204a/subir.webp" alt="Cargar" loading="lazy"><span>Cargar</span>
             </a>
-            <a href="/subir" class="sidebar-nav-item" title="Crear">
-                <img src="https://balta-media.odoo.com/web/image/885-f3d79ca9/xhbalta-aula.png" alt="Crear" loading="lazy"><span>Crear</span>
+            <a href="https://www.baltaanay.org/solicitud" class="sidebar-nav-item" title="Solicitar">
+                <img src="https://www.baltaanay.org/web/image/922-f3d79ca9/xhbalta-aula.png" alt="Solicitar" loading="lazy"><span>Solicitar</span>
             </a>
-            <a href="/biblioteca" class="sidebar-nav-item" title="Biblioteca" data-link>
-                <img src="https://nikichitonjesus3.odoo.com/web/image/453-f4d8c1eb/user.png" alt="Biblioteca" loading="lazy"><span>Biblioteca</span>
+            <a href="/my/home" class="sidebar-nav-item" title="Usuario" data-link>
+                <img src="https://nikichitonjesus3.odoo.com/web/image/453-f4d8c1eb/user.png" alt="Usuario" loading="lazy"><span>Portal</span>
             </a>
         `;
+
         const recSection = document.createElement('div');
         recSection.className = 'sidebar-rec-section';
         recSection.innerHTML = `
@@ -317,20 +348,26 @@ import { episodios, getSerieById } from '/episodios.js';
             </div>
             <div class="sidebar-rec-list" id="sidebarRecList"></div>
         `;
+
         sidebar.appendChild(toggle);
         sidebar.appendChild(nav);
         sidebar.appendChild(recSection);
         return sidebar;
     }
+
     function populateRecommendations() {
         const container = document.getElementById('sidebarRecList');
         if (!container) return;
+
         container.innerHTML = '';
+
         const selected = getRandomEpisodes(12);
+
         if (!selected.length) {
             container.innerHTML = '<div style="color:#aaa; padding:8px;">No hay episodios disponibles</div>';
             return;
         }
+
         selected.forEach(ep => {
             const serie = getSerieById(ep.seriesid) || {};
             const item = document.createElement('div');
@@ -345,6 +382,7 @@ import { episodios, getSerieById } from '/episodios.js';
                     <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </button>
             `;
+
             const btn = item.querySelector('button');
             btn.addEventListener('click', e => {
                 e.preventDefault();
@@ -355,6 +393,7 @@ import { episodios, getSerieById } from '/episodios.js';
                     window.router();
                 }
             });
+
             item.addEventListener('click', e => {
                 if (e.target.tagName !== 'BUTTON') {
                     e.preventDefault();
@@ -365,9 +404,11 @@ import { episodios, getSerieById } from '/episodios.js';
                     }
                 }
             });
+
             container.appendChild(item);
         });
     }
+
     function setActiveNavItem() {
         const currentPath = window.location.pathname;
         document.querySelectorAll('.sidebar-nav-item').forEach(item => {
@@ -379,12 +420,15 @@ import { episodios, getSerieById } from '/episodios.js';
             );
         });
     }
+
     function initSidebarToggle() {
         const sidebar = document.getElementById('sidebarDesktop');
         const toggle = document.getElementById('sidebarDesktopToggle');
         if (!sidebar || !toggle) return;
+
         const newToggle = toggle.cloneNode(true);
         toggle.parentNode.replaceChild(newToggle, toggle);
+
         newToggle.addEventListener('click', e => {
             e.stopPropagation();
             e.preventDefault();
@@ -399,23 +443,30 @@ import { episodios, getSerieById } from '/episodios.js';
             localStorage.setItem('sidebar_state', isCollapsed ? 'expanded' : 'collapsed');
         });
     }
+
     function initSidebar() {
         sidebarInstance.isMobile = window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT;
         const oldSidebar = document.querySelector('.sidebar-desktop');
         if (oldSidebar) oldSidebar.remove();
+
         if (sidebarInstance.isMobile) return;
+
         const sidebar = renderSidebar();
         document.body.insertBefore(sidebar, document.body.firstChild);
+
         populateRecommendations();
         initSidebarToggle();
         setActiveNavItem();
+
         sidebarInstance.initialized = true;
     }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initSidebar);
     } else {
         initSidebar();
     }
+
     window.addEventListener('resize', () => {
         const wasMobile = sidebarInstance.isMobile;
         const isMobileNow = window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT;
@@ -424,8 +475,10 @@ import { episodios, getSerieById } from '/episodios.js';
             initSidebar();
         }
     });
+
     document.addEventListener('spa-navigation', setActiveNavItem);
     window.addEventListener('popstate', setActiveNavItem);
+
     window.sidebarAPI = {
         refresh: populateRecommendations,
         setActive: setActiveNavItem,
@@ -447,31 +500,226 @@ import { episodios, getSerieById } from '/episodios.js';
 })();
 </script>
 
-<!-- HEADER HIDE ON SCROLL (versión definitiva - solo escucha #content) -->
-<script>
+<!-- Script principal (router + header scroll behavior CORREGIDO) -->
+<script type="module">
+    import { DATA, renderFeed, renderGrid, renderEpisodio, renderSerie, renderCategoryPills } from './show.js';
+    import { getEpisodioByDetailUrl, getSerieByUrl } from './episodios.js';
+    import './player.js';
+
+    const PAGES = [
+        { path: '/biblioteca', module: () => import('./biblioteca.js'), header: true },
+        { path: '/explorar', module: () => import('./explorar.js'), header: true },
+        { path: '/buscar', module: () => import('./buscar.js'), header: true }
+    ];
+
+    // === CONTROL PRECISO DEL HEADER (solo scroll del #content) ===
     let lastScrollTop = 0;
-    const headerContainer = document.getElementById('headerContainer');
+    let isHeaderVisible = true;
+    const SCROLL_THRESHOLD = 80;        // Distancia mínima para considerar ocultar
+    const SCROLL_DOWN_THRESHOLD = 15;    // Movimiento hacia abajo mínimo para ocultar
+    const SCROLL_UP_THRESHOLD = 5;       // Movimiento hacia arriba mínimo para mostrar
 
-    function handleHeaderScroll() {
-        const st = document.getElementById('content').scrollTop;
-
-        if (Math.abs(st - lastScrollTop) < 15) return;
-
-        if (st > lastScrollTop && st > 80) {
-            headerContainer.classList.add('hidden');
-        } else {
-            headerContainer.classList.remove('hidden');
+    function updateActiveCategory() {
+        const path = window.location.pathname;
+        let activeCat = 'Todos';
+        if (path.startsWith('/categoria/')) {
+            activeCat = decodeURIComponent(path.replace('/categoria/', ''));
         }
-
-        lastScrollTop = st;
+        renderCategoryPills(activeCat);
     }
 
-    document.getElementById('content').addEventListener('scroll', handleHeaderScroll, { passive: true });
+    async function router() {
+        const path = window.location.pathname;
+        const searchParams = new URLSearchParams(window.location.search);
+        const container = document.getElementById('content');
+        const headerContainer = document.getElementById('headerContainer');
+
+        try {
+            // Reset total al cambiar página
+            container.scrollTop = 0;
+            lastScrollTop = 0;
+            isHeaderVisible = true;
+            if (headerContainer) {
+                headerContainer.classList.remove('hidden');
+            }
+
+            if (path === '/') {
+                renderFeed(container);
+                document.title = 'Balta Media · Conocimiento en acción';
+            }
+            else if (path === '/novedades') {
+                const sorted = [...DATA].sort((a, b) => new Date(b.date) - new Date(a.date));
+                const recientes = sorted.slice(0, 20);
+                const aleatorios = [...DATA].sort(() => 0.5 - Math.random()).slice(0, 10);
+                const combined = [...new Set([...recientes, ...aleatorios])];
+
+                container.innerHTML = `
+                    <div class="mb-6 flex items-center justify-between">
+                        <h1 class="text-2xl font-bold">Novedades y Recomendaciones</h1>
+                        <button id="closeNovedadesBtn" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition">
+                            Volver al inicio
+                        </button>
+                    </div>
+                `;
+                const gridContainer = document.createElement('div');
+                gridContainer.id = 'novedades-grid';
+                container.appendChild(gridContainer);
+                renderGrid(gridContainer, combined, '');
+
+                document.title = 'Novedades · Balta Media';
+
+                document.getElementById('closeNovedadesBtn')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.history.pushState(null, null, '/');
+                    router();
+                });
+            }
+            else {
+                const page = PAGES.find(p => p.path === path);
+                if (page) {
+                    const module = await page.module();
+                    if (page.path === '/buscar' && searchParams.has('q')) {
+                        const query = searchParams.get('q');
+                        if (module.renderSearch) module.renderSearch(container, query);
+                        else module.render(container);
+                    } else {
+                        module.render(container);
+                    }
+                    document.title = `${path.slice(1).charAt(0).toUpperCase() + path.slice(2)} · Balta Media`;
+                }
+                else if (path.startsWith('/categoria/')) {
+                    const cat = decodeURIComponent(path.replace('/categoria/', ''));
+                    const buscarModule = await import('./buscar.js');
+                    if (buscarModule.renderCategory) {
+                        buscarModule.renderCategory(container, cat);
+                    } else {
+                        const categoryEpisodes = DATA.filter(ep => ep.categories && ep.categories.includes(cat));
+                        renderGrid(container, categoryEpisodes, cat);
+                    }
+                    document.title = `${cat} · Balta Media`;
+                }
+                else {
+                    const serie = getSerieByUrl(path);
+                    if (serie) {
+                        renderSerie(container, path);
+                        document.title = `${serie.titulo_serie} · Balta Media`;
+                    } else {
+                        const episodio = getEpisodioByDetailUrl(path);
+                        if (episodio) {
+                            renderEpisodio(container, episodio.id);
+                            document.title = `${episodio.title} · Balta Media`;
+                        } else {
+                            const module404 = await import('./404.js');
+                            module404.render(container);
+                            document.title = 'Página no encontrada · Balta Media';
+                        }
+                    }
+                }
+            }
+
+            updateActiveCategory();
+            document.dispatchEvent(new Event('spa-navigation'));
+
+            if (window.sidebarAPI) {
+                if (path === '/' || path === '/novedades') window.sidebarAPI.refresh();
+                window.sidebarAPI.setActive();
+            }
+
+            if (window.updatePlayerVisibility) {
+                setTimeout(() => window.updatePlayerVisibility(), 50);
+            }
+
+        } catch (error) {
+            console.error('Error en router:', error);
+            container.innerHTML = `
+                <div class="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
+                    <span class="text-6xl mb-4">😵</span>
+                    <h2 class="text-2xl font-bold text-white mb-2">Algo salió mal</h2>
+                    <p class="text-gray-300 mb-6">${error.message || 'Error al cargar la página'}</p>
+                    <button onclick="window.history.pushState(null,null,'/'); router();"
+                            class="bg-[#7b2eda] hover:bg-[#8f3ef0] text-white font-bold px-6 py-3 rounded-full transition">
+                        Volver al inicio
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    // Navegación SPA
+    document.addEventListener('click', e => {
+        const link = e.target.closest('a[data-link]');
+        if (link) {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('http')) {
+                window.history.pushState(null, null, href);
+                router();
+            } else if (href) {
+                window.open(href, '_blank');
+            }
+        }
+    });
+
+    window.addEventListener('popstate', router);
+
+    // === SCROLL DEL CONTENIDO PRINCIPAL (solo #content) ===
+    const contentElement = document.getElementById('content');
+    if (contentElement) {
+        contentElement.addEventListener('scroll', () => {
+            const currentScroll = contentElement.scrollTop;
+            const headerContainer = document.getElementById('headerContainer');
+            if (!headerContainer) return;
+
+            // Siempre visible en el tope
+            if (currentScroll <= 10) {
+                if (!isHeaderVisible) {
+                    headerContainer.classList.remove('hidden');
+                    isHeaderVisible = true;
+                }
+                lastScrollTop = currentScroll;
+                return;
+            }
+
+            const delta = currentScroll - lastScrollTop;
+
+            // Solo actuar si hay movimiento significativo
+            if (Math.abs(delta) < 8) {
+                lastScrollTop = currentScroll;
+                return;
+            }
+
+            // Scroll hacia abajo
+            if (delta > SCROLL_DOWN_THRESHOLD && currentScroll > SCROLL_THRESHOLD) {
+                if (isHeaderVisible) {
+                    headerContainer.classList.add('hidden');
+                    isHeaderVisible = false;
+                }
+            } 
+            // Scroll hacia arriba
+            else if (delta < -SCROLL_UP_THRESHOLD) {
+                if (!isHeaderVisible) {
+                    headerContainer.classList.remove('hidden');
+                    isHeaderVisible = true;
+                }
+            }
+
+            lastScrollTop = currentScroll;
+        });
+    }
+
+    // Observer
+    const observer = new MutationObserver(() => {
+        if (window.sidebarAPI) window.sidebarAPI.setActive();
+        if (window.updatePlayerVisibility) window.updatePlayerVisibility();
+    });
+    if (contentElement) {
+        observer.observe(contentElement, { childList: true, subtree: true });
+    }
+
+    window.router = router;
+    router();
+    console.log('✅ Balta Media SPA – Header y filtros se ocultan/muestran juntos');
 </script>
 
-<!-- Cargar el router principal -->
-<script type="module" src="/main.js"></script>
-<script src="./service.js"></script>
 </body>
 </html>
-
