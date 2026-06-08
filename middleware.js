@@ -9,8 +9,8 @@ export default function middleware(request) {
   const isMobile = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
   const isBot = /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot/i.test(userAgent);
 
-  const desktopDomain = 'media.baltaanay.org';
-  const mobileDomain = 'app.baltaanay.org';
+  const desktopDomain = 'podcast.nikichitonjesus.org';
+  const mobileDomain = 'appod.nikichitonjesus.org';
   const currentHost = url.hostname;
 
   // No redirigir a bots (para que indexen ambas versiones)
