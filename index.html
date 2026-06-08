@@ -3,186 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Balta Media · Conocimiento en acción</title>
-    <link rel="canonical" href="https://media.baltaanay.org/" id="canonicalLink">
-<link rel="alternate" media="only screen and (max-width: 640px)" href="https://app.baltaanay.org/" id="alternateLink">
+    <title>Niki Chiton Jesus</title>
+    <link rel="canonical" href="https://podcast.nikichitonjesus.org/" id="canonicalLink">
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://appod.baltaanay.org/" id="alternateLink">
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nikichitonjesus.odoo.com/web/image/1663-46157754/Niki%2520Chiton%2520Jesus%2520%281%29.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://nikichitonjesus.odoo.com/web/image/1663-46157754/Niki%2520Chiton%2520Jesus%2520%281%29.webp">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="/styles.css">
-   
+
     <!-- ESTILOS BASE -->
-    <style id="sidebar-base-styles">
-        * {
-            box-sizing: border-box;
-        }
+    <style>
+        * { box-sizing: border-box; }
         html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
             overflow: hidden;
             background: #050505;
         }
-
-        body {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-areas: 
-                "sidebar main-area";
-            grid-template-rows: 1fr;
-        }
-
-        /* SIDEBAR */
-        .sidebar-desktop {
-            grid-area: sidebar;
-            background: #0F0F0F;
-            color: #fff;
-            z-index: 900;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-            scrollbar-width: none;
-            transition: width 0.3s ease;
-            width: 70px;
-            min-width: 70px;
-        }
-        .sidebar-desktop::-webkit-scrollbar { display: none; }
-
-        .sidebar-desktop.expanded {
-            width: 220px;
-            min-width: 220px;
-        }
-        @media (min-width: 1280px) {
-            .sidebar-desktop.expanded {
-                width: 250px;
-                min-width: 250px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar-desktop { display: none !important; }
-        }
-
-        .sidebar-toggle {
-            display: flex;
-            justify-content: flex-end;
-            padding: 16px 12px;
-            cursor: pointer;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
-        }
-        .sidebar-toggle svg { width: 24px; height: 24px; fill: white; transition: transform 0.2s; }
-        .sidebar-desktop.expanded .sidebar-toggle svg { transform: rotate(180deg); }
-
-        .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 0 8px;
-            margin-bottom: 30px;
-        }
-        .sidebar-nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            white-space: nowrap;
-            transition: background 0.2s;
-        }
-        .sidebar-nav-item:hover { background: rgba(255,255,255,0.1); }
-        .sidebar-nav-item.active { background: rgba(255,255,255,0.2); }
-        .sidebar-nav-item img { width: 24px; height: 24px; filter: brightness(1.2); flex-shrink: 0; }
-        .sidebar-nav-item span { font-size: 14px; font-weight: 500; }
-        .sidebar-desktop:not(.expanded) .sidebar-nav-item span { display: none; }
-        .sidebar-desktop:not(.expanded) .sidebar-rec-section { display: none; }
-
-        .sidebar-rec-section {
-            padding: 0 8px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 16px;
-        }
-        .sidebar-rec-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-        .sidebar-rec-header a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .sidebar-rec-header svg { width: 16px; height: 16px; fill: white; }
-        .sidebar-rec-list { display: flex; flex-direction: column; gap: 12px; }
-
-        .sidebar-rec-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background 0.15s;
-            padding: 6px;
-            border-radius: 6px;
-        }
-        .sidebar-rec-item:hover { background: rgba(255,255,255,0.08); }
-        .sidebar-rec-item img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 6px;
-            flex-shrink: 0;
-        }
-        .sidebar-rec-item-info { flex: 1; min-width: 0; }
-        .sidebar-rec-item-title { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .sidebar-rec-item-author { font-size: 11px; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-        .sidebar-rec-play-btn {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .sidebar-rec-play-btn:hover { background: rgba(255,255,255,0.2); }
-        .sidebar-rec-play-btn svg { width: 18px; height: 18px; fill: white; }
-
-        /* MAIN AREA */
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .main-area {
-            grid-area: main-area;
             display: flex;
             flex-direction: column;
             height: 100vh;
             overflow: hidden;
             position: relative;
         }
-
-        /* HEADER Y FILTROS - COMPORTAMIENTO CORREGIDO */
         .header-container {
             position: sticky;
             top: 0;
@@ -192,94 +44,92 @@
             background: rgba(5,5,5,0.96);
             backdrop-filter: blur(12px);
         }
-
         .header-container.hidden {
             transform: translateY(-100%);
         }
-
         #main-header {
             background: transparent;
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
-
-        #main-header > div {
-            padding: 0.75rem 1rem;
-        }
-
+        #main-header > div { padding: 0.75rem 1rem; }
         #category-filters {
             background: rgba(5,5,5,0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.07);
             flex-shrink: 0;
+            transition: transform 0.32s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
-
-        #category-filters > div {
-            padding: 0.5rem 1rem;
+        #category-filters.moved-up {
+            transform: translateY(-52px);
         }
-
         #content {
             flex: 1 1 auto;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             padding: 1.25rem 1rem;
+            padding-bottom: 140px;
         }
-
-        @media (max-width: 768px) {
-            body {
-                grid-template-columns: 1fr;
-                grid-template-areas: "main-area";
-            }
+        .install-button {
+            background: #7b2eda;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
         }
+        .install-button.hidden { display: none; }
+        .install-button.update { background: #f59e0b; }
+        .install-button img {
+            width: 20px; height: 20px;
+            filter: brightness(0) invert(1);
+        }
+        /* estilos para scroll oculto (opcional) */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-[#050505] text-white font-[Plus_Jakarta_Sans]">
 
-<!-- Sidebar -->
-<aside class="sidebar-desktop collapsed" id="sidebarDesktop"></aside>
-
-<!-- Área principal -->
 <div class="main-area">
-
-    <!-- Header + Filtros - Contenedor unificado para sticky -->
     <div class="header-container" id="headerContainer">
-        <!-- Header -->
         <header id="main-header">
             <div class="flex items-center justify-between">
                 <a href="/" class="flex items-center gap-2" data-link>
-                    <img src="https://media.baltaanay.org/web/image/885-f3d79ca9/xhbalta-aula.png" alt="Balta Media" class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover" loading="lazy">
-                    <span class="text-lg sm:text-xl font-bold text-white">Balta Media</span>
+                    <img src="https://nikichitonjesus.odoo.com/web/image/1668-134717bf/Comp%20Logo%20con%20fondo.svg" alt="Niki Chiton Jesus" class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover" loading="lazy">
+                    <span class="text-lg sm:text-xl font-bold text-white">Niki Chiton Jesus</span>
                 </a>
                 <div class="flex items-center gap-3 sm:gap-4">
                     <a href="/novedades" class="relative text-gray-400 hover:text-white" data-link>
-                        <img src="https://media.baltaanay.org/web/image/796-aee658de/Explore.png" alt="Novedades" class="w-5 h-5" loading="lazy">
+                        <img src="https://balta-media.odoo.com/web/image/796-aee658de/Explore.png" alt="Novedades" class="w-5 h-5" loading="lazy">
                         <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                     </a>
-                    <a href="/my/home" class="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full overflow-hidden" data-link>
-                        <img src="https://media.baltaanay.org/web/image/793-902e5b33/Search%20%282%29.png" alt="Usuario" class="w-full h-full object-cover" loading="lazy">
+                    <button id="install-button-container" class="install-button hidden">
+                        <img id="install-icon" src="https://nikichitonjesus.odoo.com/web/image/624-ec376d7f/descargar.png" alt="Instalar">
+                        <span id="install-text">Instalar app</span>
+                    </button>
+                    <a href="/my/home" id="profile-link" class="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full overflow-hidden" data-link>
+                        <img src="https://balta-media.odoo.com/web/image/793-902e5b33/Search%20%282%29.png" alt="Usuario" class="w-full h-full object-cover" loading="lazy">
                     </a>
                 </div>
             </div>
         </header>
-
-        <!-- Filtros / categorías -->
         <div id="category-filters">
             <div class="overflow-x-auto no-scrollbar">
                 <div class="flex items-center gap-2 sm:gap-3" id="category-pills"></div>
             </div>
         </div>
     </div>
-
-    <!-- Contenido con scroll principal -->
     <main id="content"></main>
-
 </div>
 
-<!-- Reproductor flotante -->
-<div id="floating-player" class="fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t border-[#333] p-3 flex items-center justify-between z-[10000] backdrop-blur hidden">
-    <!-- Generado por player.js -->
-</div>
+<div id="floating-player" class="fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t border-[#333] p-3 flex items-center justify-between z-[10000] backdrop-blur hidden"></div>
 
-<!-- Modal de error -->
 <div id="errorModal" class="fixed inset-0 z-[10000] flex items-center justify-center hidden" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);">
     <div class="bg-[#1e1e2f] rounded-2xl max-w-md w-full p-6 border border-white/10 shadow-2xl">
         <h3 class="text-xl font-bold text-white mb-3" id="errorModalTitle">Error</h3>
@@ -292,433 +142,241 @@
     </div>
 </div>
 
-
-<!-- Script sidebar -->
-<script type="module">
-import { episodios, getSerieById } from '/episodios.js';
-
+<!-- BARRA INFERIOR MÓVIL (siempre visible) -->
+<script>
 (function() {
-    const SIDEBAR_CONFIG = { BREAKPOINT: 768 };
-    let sidebarInstance = {
-        initialized: false,
-        currentState: localStorage.getItem('sidebar_state') || 'collapsed',
-        isMobile: window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT
-    };
-
-    function getRandomEpisodes(count = 12) {
-        const shuffled = [...episodios].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    }
-
-    function renderSidebar() {
-        const sidebar = document.createElement('aside');
-        sidebar.className = `sidebar-desktop ${sidebarInstance.currentState}`;
-        sidebar.id = 'sidebarDesktop';
-
-        const toggle = document.createElement('div');
-        toggle.className = 'sidebar-toggle';
-        toggle.id = 'sidebarDesktopToggle';
-        toggle.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>';
-
-        const nav = document.createElement('div');
-        nav.className = 'sidebar-nav';
-        nav.innerHTML = `
-            <a href="/" class="sidebar-nav-item" title="Home" data-link>
-                <img src="https://media.baltaanay.org/web/image/798-1b947c8d/Home%20%282%29.webp" alt="Home" loading="lazy"><span>Home</span>
-            </a>
-            <a href="/buscar" class="sidebar-nav-item" title="Explorar" data-link>
-                <img src="https://www.baltaanay.org/web/image/986-2bf9d2bb/Search%20%282%29.webp" alt="Explorar" loading="lazy"><span>Explorar</span>
-            </a>
-            <a href="/subir" class="sidebar-nav-item" title="Cargar" data-link>
-                <img src="https://www.baltaanay.org/web/image/991-1c3c204a/subir.webp" alt="Cargar" loading="lazy"><span>Cargar</span>
-            </a>
-            <a href="https://www.baltaanay.org/solicitud" class="sidebar-nav-item" title="Solicitar">
-                <img src="https://www.baltaanay.org/web/image/922-f3d79ca9/xhbalta-aula.png" alt="Solicitar" loading="lazy"><span>Solicitar</span>
-            </a>
-            <a href="/my/home" class="sidebar-nav-item" title="Usuario" data-link>
-                <img src="https://nikichitonjesus3.odoo.com/web/image/453-f4d8c1eb/user.png" alt="Usuario" loading="lazy"><span>Portal</span>
-            </a>
-        `;
-
-        const recSection = document.createElement('div');
-        recSection.className = 'sidebar-rec-section';
-        recSection.innerHTML = `
-            <div class="sidebar-rec-header">
-                <a href="/novedades" data-link>Recomendados<svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a>
-            </div>
-            <div class="sidebar-rec-list" id="sidebarRecList"></div>
-        `;
-
-        sidebar.appendChild(toggle);
-        sidebar.appendChild(nav);
-        sidebar.appendChild(recSection);
-        return sidebar;
-    }
-
-    function populateRecommendations() {
-        const container = document.getElementById('sidebarRecList');
-        if (!container) return;
-
-        container.innerHTML = '';
-
-        const selected = getRandomEpisodes(12);
-
-        if (!selected.length) {
-            container.innerHTML = '<div style="color:#aaa; padding:8px;">No hay episodios disponibles</div>';
-            return;
+    const BOTTOMBAR_CONFIG = { HEIGHT: '60px' };
+    const bottomBarStyles = `
+        .bottom-bar-mobile {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: ${BOTTOMBAR_CONFIG.HEIGHT};
+            background: #0F0F0F; color: #fff; z-index: 950;
+            display: flex; align-items: center; justify-content: space-around;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
         }
+        .bottom-bar-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.8); text-decoration: none; font-size: 11px; gap: 4px;
+            padding: 8px 12px; border-radius: 8px; transition: all 0.2s; flex: 1;
+        }
+        .bottom-bar-item.active { color: white; background: rgba(255,255,255,0.15); }
+        .bottom-bar-item img { width: 24px; height: 24px; filter: brightness(1.2); }
+        body.with-bottom-bar { margin-bottom: ${BOTTOMBAR_CONFIG.HEIGHT}; }
+        #floating-player { bottom: ${BOTTOMBAR_CONFIG.HEIGHT} !important; }
+    `;
 
-        selected.forEach(ep => {
-            const serie = getSerieById(ep.seriesid) || {};
-            const item = document.createElement('div');
-            item.className = 'sidebar-rec-item';
-            item.innerHTML = `
-                <img src="${serie.portada_serie || ep.coverUrl || 'https://via.placeholder.com/40'}" alt="${ep.title}" loading="lazy">
-                <div class="sidebar-rec-item-info">
-                    <div class="sidebar-rec-item-title">${ep.title}</div>
-                    <div class="sidebar-rec-item-author">${ep.author || serie.titulo_serie || '—'}</div>
-                </div>
-                <button class="sidebar-rec-play-btn" data-url="${ep.detailUrl || '#'}">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-            `;
-
-            const btn = item.querySelector('button');
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                e.stopPropagation();
-                const url = btn.dataset.url;
-                if (url && url !== '#' && window.router) {
-                    window.history.pushState(null, null, url);
-                    window.router();
-                }
-            });
-
-            item.addEventListener('click', e => {
-                if (e.target.tagName !== 'BUTTON') {
-                    e.preventDefault();
-                    const url = ep.detailUrl;
-                    if (url && url !== '#' && window.router) {
-                        window.history.pushState(null, null, url);
-                        window.router();
-                    }
-                }
-            });
-
-            container.appendChild(item);
-        });
+    function injectStyles() {
+        if (document.getElementById('bottom-bar-styles')) return;
+        const style = document.createElement('style');
+        style.id = 'bottom-bar-styles';
+        style.textContent = bottomBarStyles;
+        document.head.appendChild(style);
     }
 
-    function setActiveNavItem() {
+    function renderBottomBar() {
+        const bar = document.createElement('nav');
+        bar.className = 'bottom-bar-mobile';
+        bar.id = 'bottomBarMobile';
+        const items = [
+            { href: '/', icon: 'https://balta-media.odoo.com/web/image/798-1b947c8d/Home%20%282%29.webp', label: 'Inicio' },
+            { href: '/buscar', icon: 'https://www.baltaanay.org/web/image/986-2bf9d2bb/Search%20%282%29.webp', label: 'Buscar' },
+            { href: '/explorar', icon: 'https://balta-media.odoo.com/web/image/796-aee658de/Explore.png', label: 'Explorar' },
+            { href: '/subir', icon: 'https://www.baltaanay.org/web/image/991-1c3c204a/subir.webp', label: 'Crear' },
+            { href: '/my/home', icon: 'https://nikichitonjesus3.odoo.com/web/image/453-f4d8c1eb/user.png', label: 'Perfil' }
+        ];
+        items.forEach(item => {
+            const link = document.createElement('a');
+            link.href = item.href;
+            link.className = 'bottom-bar-item';
+            link.setAttribute('data-link', 'true');
+            link.innerHTML = `<img src="${item.icon}" alt="${item.label}" loading="lazy"><span>${item.label}</span>`;
+            bar.appendChild(link);
+        });
+        return bar;
+    }
+
+    function setActiveBottomItem() {
         const currentPath = window.location.pathname;
-        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+        document.querySelectorAll('.bottom-bar-item').forEach(item => {
             const href = item.getAttribute('href');
-            item.classList.toggle('active',
-                (href === currentPath) ||
-                (href === '/' && currentPath === '/') ||
-                (href === '/buscar' && currentPath === '/buscar')
-            );
+            item.classList.toggle('active', href === currentPath || (href === '/' && currentPath === '/'));
         });
     }
 
-    function initSidebarToggle() {
-        const sidebar = document.getElementById('sidebarDesktop');
-        const toggle = document.getElementById('sidebarDesktopToggle');
-        if (!sidebar || !toggle) return;
-
-        const newToggle = toggle.cloneNode(true);
-        toggle.parentNode.replaceChild(newToggle, toggle);
-
-        newToggle.addEventListener('click', e => {
-            e.stopPropagation();
-            e.preventDefault();
-            const isCollapsed = sidebar.classList.contains('collapsed');
-            if (isCollapsed) {
-                sidebar.classList.remove('collapsed');
-                sidebar.classList.add('expanded');
-            } else {
-                sidebar.classList.add('collapsed');
-                sidebar.classList.remove('expanded');
-            }
-            localStorage.setItem('sidebar_state', isCollapsed ? 'expanded' : 'collapsed');
-        });
+    function initBottomBar() {
+        document.getElementById('bottomBarMobile')?.remove();
+        injectStyles();
+        const bar = renderBottomBar();
+        document.body.appendChild(bar);
+        setActiveBottomItem();
+        document.body.classList.add('with-bottom-bar');
     }
 
-    function initSidebar() {
-        sidebarInstance.isMobile = window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT;
-        const oldSidebar = document.querySelector('.sidebar-desktop');
-        if (oldSidebar) oldSidebar.remove();
-
-        if (sidebarInstance.isMobile) return;
-
-        const sidebar = renderSidebar();
-        document.body.insertBefore(sidebar, document.body.firstChild);
-
-        populateRecommendations();
-        initSidebarToggle();
-        setActiveNavItem();
-
-        sidebarInstance.initialized = true;
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSidebar);
-    } else {
-        initSidebar();
-    }
-
-    window.addEventListener('resize', () => {
-        const wasMobile = sidebarInstance.isMobile;
-        const isMobileNow = window.innerWidth <= SIDEBAR_CONFIG.BREAKPOINT;
-        if (wasMobile !== isMobileNow) {
-            sidebarInstance.isMobile = isMobileNow;
-            initSidebar();
-        }
-    });
-
-    document.addEventListener('spa-navigation', setActiveNavItem);
-    window.addEventListener('popstate', setActiveNavItem);
-
-    window.sidebarAPI = {
-        refresh: populateRecommendations,
-        setActive: setActiveNavItem,
-        toggle: () => {
-            const sidebar = document.getElementById('sidebarDesktop');
-            if (sidebar) {
-                const isCollapsed = sidebar.classList.contains('collapsed');
-                if (isCollapsed) {
-                    sidebar.classList.remove('collapsed');
-                    sidebar.classList.add('expanded');
-                } else {
-                    sidebar.classList.add('collapsed');
-                    sidebar.classList.remove('expanded');
-                }
-                localStorage.setItem('sidebar_state', isCollapsed ? 'expanded' : 'collapsed');
-            }
-        }
-    };
+    document.addEventListener('DOMContentLoaded', initBottomBar);
+    window.addEventListener('popstate', setActiveBottomItem);
+    document.addEventListener('spa-navigation', setActiveBottomItem);
 })();
 </script>
 
-<!-- Script principal (router + header scroll behavior CORREGIDO) -->
-<script type="module">
-    import { DATA, renderFeed, renderGrid, renderEpisodio, renderSerie, renderCategoryPills } from './show.js';
-    import { getEpisodioByDetailUrl, getSerieByUrl } from './episodios.js';
-    import './player.js';
+<!-- PWA: Instalación y actualizaciones -->
+<script>
+(function() {
+    let deferredPrompt = null;
+    let isUpdateAvailable = false;
+    const installBtn = document.getElementById('install-button-container');
+    const installText = document.getElementById('install-text');
+    const installIcon = document.getElementById('install-icon');
+    const profileLink = document.getElementById('profile-link');
 
-    const PAGES = [
-        { path: '/biblioteca', module: () => import('./biblioteca.js'), header: true },
-        { path: '/explorar', module: () => import('./explorar.js'), header: true },
-        { path: '/buscar', module: () => import('./buscar.js'), header: true }
-    ];
+    const ICONS = {
+        install: "https://nikichitonjesus.odoo.com/web/image/624-ec376d7f/descargar.png",
+        update: "https://nikichitonjesus.odoo.com/web/image/775-4e2e83af/repetir-.webp",
+        openApp: "https://nikichitonjesus.odoo.com/web/image/993-70b1b1d5/userlist.webp",
+        myHome: "https://nikichitonjesus.odoo.com/web/image/776-52d85853/a%C3%B1adir%20a.webp"
+    };
 
-    // === CONTROL PRECISO DEL HEADER (solo scroll del #content) ===
-    let lastScrollTop = 0;
-    let isHeaderVisible = true;
-    const SCROLL_THRESHOLD = 80;        // Distancia mínima para considerar ocultar
-    const SCROLL_DOWN_THRESHOLD = 15;    // Movimiento hacia abajo mínimo para ocultar
-    const SCROLL_UP_THRESHOLD = 5;       // Movimiento hacia arriba mínimo para mostrar
-
-    function updateActiveCategory() {
-        const path = window.location.pathname;
-        let activeCat = 'Todos';
-        if (path.startsWith('/categoria/')) {
-            activeCat = decodeURIComponent(path.replace('/categoria/', ''));
-        }
-        renderCategoryPills(activeCat);
+    function isStandalone() {
+        return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
     }
 
-    async function router() {
-        const path = window.location.pathname;
-        const searchParams = new URLSearchParams(window.location.search);
-        const container = document.getElementById('content');
-        const headerContainer = document.getElementById('headerContainer');
-
-        try {
-            // Reset total al cambiar página
-            container.scrollTop = 0;
-            lastScrollTop = 0;
-            isHeaderVisible = true;
-            if (headerContainer) {
-                headerContainer.classList.remove('hidden');
+    function updateButtonUI() {
+        const standalone = isStandalone();
+        if (standalone) {
+            installBtn.classList.add('hidden');
+            profileLink.classList.remove('hidden');
+            profileLink.innerHTML = `<img src="${ICONS.myHome}" alt="Perfil" class="w-full h-full object-cover" loading="lazy">`;
+            if (isUpdateAvailable) {
+                installBtn.classList.remove('hidden');
+                installBtn.classList.add('update');
+                installText.textContent = 'Actualizar';
+                installIcon.src = ICONS.update;
             }
-
-            if (path === '/') {
-                renderFeed(container);
-                document.title = 'Balta Media · Conocimiento en acción';
+        } else {
+            profileLink.classList.add('hidden');
+            if (isUpdateAvailable) {
+                installBtn.classList.remove('hidden');
+                installBtn.classList.add('update');
+                installText.textContent = 'Actualizar';
+                installIcon.src = ICONS.update;
+            } else if (deferredPrompt) {
+                installBtn.classList.remove('hidden');
+                installBtn.classList.remove('update');
+                installText.textContent = 'Instalar app';
+                installIcon.src = ICONS.install;
+            } else {
+                installBtn.classList.remove('hidden');
+                installBtn.classList.remove('update');
+                installText.textContent = 'Abrir app';
+                installIcon.src = ICONS.openApp;
             }
-            else if (path === '/novedades') {
-                const sorted = [...DATA].sort((a, b) => new Date(b.date) - new Date(a.date));
-                const recientes = sorted.slice(0, 20);
-                const aleatorios = [...DATA].sort(() => 0.5 - Math.random()).slice(0, 10);
-                const combined = [...new Set([...recientes, ...aleatorios])];
+        }
+    }
 
-                container.innerHTML = `
-                    <div class="mb-6 flex items-center justify-between">
-                        <h1 class="text-2xl font-bold">Novedades y Recomendaciones</h1>
-                        <button id="closeNovedadesBtn" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition">
-                            Volver al inicio
+    window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault();
+        deferredPrompt = e;
+        updateButtonUI();
+    });
+
+    installBtn.addEventListener('click', async () => {
+        if (isUpdateAvailable && window.registration?.waiting) {
+            window.registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            return;
+        }
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            updateButtonUI();
+        } else {
+            window.location.href = "https://app.baltaanay.org/";
+        }
+    });
+
+    // REGISTRO DEL SERVICE WORKER mejorado
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(reg => {
+                window.registration = reg;
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    if (newWorker) {
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                isUpdateAvailable = true;
+                                updateButtonUI();
+                            }
+                        });
+                    }
+                });
+                // Recargar automáticamente cuando el SW tome control
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    window.location.reload();
+                });
+            })
+            .catch(err => console.error('SW error:', err));
+    }
+
+    window.matchMedia('(display-mode: standalone)').addEventListener('change', updateButtonUI);
+    updateButtonUI();
+})();
+</script>
+
+<!-- SCROLL HEADER MÓVIL -->
+<script>
+    let lastScrollTop = 0;
+    function handleHeaderScroll() {
+        const content = document.getElementById('content');
+        if (!content) return;
+        const st = content.scrollTop;
+        const header = document.getElementById('headerContainer');
+        if (!header) return;
+        if (Math.abs(st - lastScrollTop) < 15) return;
+        if (st > lastScrollTop && st > 80) {
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = st;
+    }
+
+    const checkContent = setInterval(() => {
+        const content = document.getElementById('content');
+        if (content) {
+            content.addEventListener('scroll', handleHeaderScroll, { passive: true });
+            clearInterval(checkContent);
+        }
+    }, 100);
+</script>
+
+<!-- Router principal y otros módulos -->
+<script type="module" src="/main.js"></script>
+<script src="./service.js"></script>
+
+<!-- Offline detection (mejora visual) -->
+<script>
+(function() {
+    function showOfflineMessage() {
+        const content = document.getElementById('content');
+        if (content && !navigator.onLine) {
+            // Solo si el contenido actual no es ya la página offline (opcional)
+            if (!content.querySelector('.offline-custom')) {
+                content.innerHTML = `
+                    <div class="flex flex-col items-center justify-center min-h-[50vh] text-center px-4 offline-custom">
+                        <span class="text-6xl mb-4">📡</span>
+                        <h2 class="text-2xl font-bold text-white mb-2">Sin conexión</h2>
+                        <p class="text-gray-300 mb-6">Conéctate para disfrutar del contenido.</p>
+                        <button onclick="window.location.reload()" class="bg-[#7b2eda] hover:bg-[#8f3ef0] text-white font-bold px-6 py-3 rounded-full transition">
+                            Reintentar
                         </button>
                     </div>
                 `;
-                const gridContainer = document.createElement('div');
-                gridContainer.id = 'novedades-grid';
-                container.appendChild(gridContainer);
-                renderGrid(gridContainer, combined, '');
-
-                document.title = 'Novedades · Balta Media';
-
-                document.getElementById('closeNovedadesBtn')?.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.history.pushState(null, null, '/');
-                    router();
-                });
-            }
-            else {
-                const page = PAGES.find(p => p.path === path);
-                if (page) {
-                    const module = await page.module();
-                    if (page.path === '/buscar' && searchParams.has('q')) {
-                        const query = searchParams.get('q');
-                        if (module.renderSearch) module.renderSearch(container, query);
-                        else module.render(container);
-                    } else {
-                        module.render(container);
-                    }
-                    document.title = `${path.slice(1).charAt(0).toUpperCase() + path.slice(2)} · Balta Media`;
-                }
-                else if (path.startsWith('/categoria/')) {
-                    const cat = decodeURIComponent(path.replace('/categoria/', ''));
-                    const buscarModule = await import('./buscar.js');
-                    if (buscarModule.renderCategory) {
-                        buscarModule.renderCategory(container, cat);
-                    } else {
-                        const categoryEpisodes = DATA.filter(ep => ep.categories && ep.categories.includes(cat));
-                        renderGrid(container, categoryEpisodes, cat);
-                    }
-                    document.title = `${cat} · Balta Media`;
-                }
-                else {
-                    const serie = getSerieByUrl(path);
-                    if (serie) {
-                        renderSerie(container, path);
-                        document.title = `${serie.titulo_serie} · Balta Media`;
-                    } else {
-                        const episodio = getEpisodioByDetailUrl(path);
-                        if (episodio) {
-                            renderEpisodio(container, episodio.id);
-                            document.title = `${episodio.title} · Balta Media`;
-                        } else {
-                            const module404 = await import('./404.js');
-                            module404.render(container);
-                            document.title = 'Página no encontrada · Balta Media';
-                        }
-                    }
-                }
-            }
-
-            updateActiveCategory();
-            document.dispatchEvent(new Event('spa-navigation'));
-
-            if (window.sidebarAPI) {
-                if (path === '/' || path === '/novedades') window.sidebarAPI.refresh();
-                window.sidebarAPI.setActive();
-            }
-
-            if (window.updatePlayerVisibility) {
-                setTimeout(() => window.updatePlayerVisibility(), 50);
-            }
-
-        } catch (error) {
-            console.error('Error en router:', error);
-            container.innerHTML = `
-                <div class="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
-                    <span class="text-6xl mb-4">😵</span>
-                    <h2 class="text-2xl font-bold text-white mb-2">Algo salió mal</h2>
-                    <p class="text-gray-300 mb-6">${error.message || 'Error al cargar la página'}</p>
-                    <button onclick="window.history.pushState(null,null,'/'); router();"
-                            class="bg-[#7b2eda] hover:bg-[#8f3ef0] text-white font-bold px-6 py-3 rounded-full transition">
-                        Volver al inicio
-                    </button>
-                </div>
-            `;
-        }
-    }
-
-    // Navegación SPA
-    document.addEventListener('click', e => {
-        const link = e.target.closest('a[data-link]');
-        if (link) {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-            if (href && !href.startsWith('http')) {
-                window.history.pushState(null, null, href);
-                router();
-            } else if (href) {
-                window.open(href, '_blank');
             }
         }
-    });
-
-    window.addEventListener('popstate', router);
-
-    // === SCROLL DEL CONTENIDO PRINCIPAL (solo #content) ===
-    const contentElement = document.getElementById('content');
-    if (contentElement) {
-        contentElement.addEventListener('scroll', () => {
-            const currentScroll = contentElement.scrollTop;
-            const headerContainer = document.getElementById('headerContainer');
-            if (!headerContainer) return;
-
-            // Siempre visible en el tope
-            if (currentScroll <= 10) {
-                if (!isHeaderVisible) {
-                    headerContainer.classList.remove('hidden');
-                    isHeaderVisible = true;
-                }
-                lastScrollTop = currentScroll;
-                return;
-            }
-
-            const delta = currentScroll - lastScrollTop;
-
-            // Solo actuar si hay movimiento significativo
-            if (Math.abs(delta) < 8) {
-                lastScrollTop = currentScroll;
-                return;
-            }
-
-            // Scroll hacia abajo
-            if (delta > SCROLL_DOWN_THRESHOLD && currentScroll > SCROLL_THRESHOLD) {
-                if (isHeaderVisible) {
-                    headerContainer.classList.add('hidden');
-                    isHeaderVisible = false;
-                }
-            } 
-            // Scroll hacia arriba
-            else if (delta < -SCROLL_UP_THRESHOLD) {
-                if (!isHeaderVisible) {
-                    headerContainer.classList.remove('hidden');
-                    isHeaderVisible = true;
-                }
-            }
-
-            lastScrollTop = currentScroll;
-        });
     }
-
-    // Observer
-    const observer = new MutationObserver(() => {
-        if (window.sidebarAPI) window.sidebarAPI.setActive();
-        if (window.updatePlayerVisibility) window.updatePlayerVisibility();
-    });
-    if (contentElement) {
-        observer.observe(contentElement, { childList: true, subtree: true });
-    }
-
-    window.router = router;
-    router();
-    console.log('✅ Balta Media SPA – Header y filtros se ocultan/muestran juntos');
+    window.addEventListener('offline', showOfflineMessage);
+    window.addEventListener('online', () => window.location.reload());
+    if (!navigator.onLine) showOfflineMessage();
+})();
 </script>
 
 </body>
