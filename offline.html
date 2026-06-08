@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin conexión - Niki Chiton Jesus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .offline-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon {
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .retry-btn {
+            background: #7b2eda;
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .retry-btn:hover {
+            background: #8f3ef0;
+            transform: scale(1.02);
+        }
+
+        .status {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .brand {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .brand img {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18V18.01M12 14C9.79 14 8 15.79 8 18H16C16 15.79 14.21 14 12 14Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4C8.36 4 5.33 6.59 4.65 10.04C2.06 10.53 0 12.87 0 15.5C0 18.13 2.06 20.47 4.65 20.96" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21.35 20.96C23.94 20.47 26 18.13 26 15.5C26 12.87 23.94 10.53 21.35 10.04" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <h1>Estás sin conexión</h1>
+        <p>Parece que has perdido la conexión a internet. Vuelve a intentarlo cuando tengas señal.</p>
+        <button class="retry-btn" onclick="window.location.reload()">Reintentar</button>
+        <div class="status" id="connectionStatus">Intentando reconectar...</div>
+        <div class="brand">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.78 3.5-5.11 3.5z'/%3E%3C/svg%3E" alt="icon">
+            <span>Balta Media</span>
+        </div>
+    </div>
+    <script>
+        // Escuchar cuando se recupere la conexión y recargar automáticamente
+        window.addEventListener('online', () => {
+            document.getElementById('connectionStatus').textContent = '¡Conexión recuperada! Recargando...';
+            setTimeout(() => window.location.reload(), 1000);
+        });
+        
+        window.addEventListener('offline', () => {
+            document.getElementById('connectionStatus').textContent = 'Sin conexión. Verifica tu internet.';
+        });
+    </script>
+</body>
+</html>
