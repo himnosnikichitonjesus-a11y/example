@@ -44,7 +44,7 @@ async function router() {
     try {
         if (path === '/' || path === '') {
             renderFeed(container);
-            document.title = 'Balta Media · Conocimiento en acción';
+            document.title = 'Niki Chiton Jesus · Amor, gracia y fe';
         }
         else {
             const page = PAGES.find(p => p.path === path);
