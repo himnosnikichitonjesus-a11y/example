@@ -8,8 +8,8 @@ function updateCanonicalAndAlternate() {
     const path = window.location.pathname;
     const canonical = document.getElementById('canonicalLink');
     const alternate = document.getElementById('alternateLink');
-    if (canonical) canonical.href = `https://media.baltaanay.org${path}`;
-    if (alternate) alternate.href = `https://app.baltaanay.org${path}`;
+    if (canonical) canonical.href = `https://podcast.nikichitonjesus.org${path}`;
+    if (alternate) alternate.href = `https://appod.nikichitonjesus.org${path}`;
 }
 
 const PAGES = [
